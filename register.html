@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="style/register.css">
+</head>
+<body>
+    <div class="register-wrapper">
+        <div class="register-container">
+            <p style="color: black;">Регистрация</p>
+            <form id="registerForm">
+                <input type="text" name="name" placeholder="Введите никнейм..." required>
+                <input type="text" name="login" placeholder="Введите логин..." required>
+                <input type="password" name="password" placeholder="Введите пароль..." required>
+                <input type="password" name="password_confirm" placeholder="Повторите пароль..." required>
+                
+                <div class="gender-options">
+                    <label class="gender-form">Выберите пол:</label>
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="male" required>
+                        <span class="gender-label">Мужской</span>
+                    </label>
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="female">
+                        <span class="gender-label">Женский</span>
+                    </label>
+                </div>
+                
+                <button type="submit">Зарегистрироваться</button>
+                <p class="msg"></p>
+            </form>
+        </div>
+
+        <div class="login-section">
+            <p>Если аккаунт уже есть, <a href="auth.html">войдите</a> в вашу учетную запись</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedGender = document.querySelector('input[name="gender"]:checked');
+            if (!selectedGender) {
+                alert('Пожалуйста, выберите пол');
+                return;
+            }
+            
+            localStorage.setItem('userGender', selectedGender.value);
+            window.location.href = 'heros.html';
+        });
+    </script>
+</body>
+</html>

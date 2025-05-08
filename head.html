@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шапка</title>
+  <link rel="stylesheet" href="style/head.css">
+</head>
+
+<body>
+  <div class="header1">
+    <button class="mobile-menu-btn" id="menuBtn">☰</button>
+    <div class="user-profile1">
+      <div class="character-container1"></div>
+      <div class="user-profile2">
+        <div class="user-name">Иван</div>
+        <div class="user-level">уровень 15</div>
+      </div>
+      <div class="character-line"></div>
+      <div>
+        <table class="invisible-table">
+          <tr>
+            <td style="color:#FF9496;"><img src="">Здоровье:</td>
+            <td style="color:#86D7FF;">Атака:</td>
+          </tr>
+          <tr>
+            <td style="color:#A2FF86;">Опыт:</td>
+            <td style="color:#FFFCA2;">Золото:</td>
+          </tr>
+        </table>
+      </div>
+      <div class="character-line"></div>
+      <div class="user-profile2">
+        <div class="user-go">
+          Бу испугался не бойся
+          Я друг, я тебя не обижу
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Боковое меню для десктопа -->
+  <div class="header2">
+    <div class="character-container2">
+      <a href="profile.html" class="nav-link">
+        <img src="images/profile.svg" alt="Профиль">
+      </a>
+      <a href="tasks.html" class="nav-link">
+        <img src="images/tasks.svg" alt="Задачи">
+      </a>
+      <a href="shop.html" class="nav-link">
+        <img src="images/shop.svg" alt="Магазин">
+      </a>
+      <a href="battles.html" class="nav-link">
+        <img src="images/battles.svg" alt="Битвы">
+      </a>
+      <a href="help.html" class="nav-link">
+        <img src="images/help.svg" alt="Помощь">
+      </a>
+    </div>
+  </div>
+
+  <!-- Мобильное выпадающее меню -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu-btn" id="closeMenuBtn">×</button>
+    <div class="mobile-menu-container">
+      <a href="profile.html" class="mobile-nav-link">
+        <img src="images/profile.svg" alt="Профиль">
+        <span>Профиль</span>
+      </a>
+      <a href="tasks.html" class="mobile-nav-link">
+        <img src="images/tasks.svg" alt="Задачи">
+        <span>Задачи</span>
+      </a>
+      <a href="shop.html" class="mobile-nav-link">
+        <img src="images/shop.svg" alt="Магазин">
+        <span>Магазин</span>
+      </a>
+      <a href="battles.html" class="mobile-nav-link">
+        <img src="images/battles.svg" alt="Битвы">
+        <span>Битвы</span>
+      </a>
+      <a href="help.html" class="mobile-nav-link">
+        <img src="images/help.svg" alt="Помощь">
+        <span>Помощь</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Основной контент страницы -->
+  <div class="main-content">
+    <!-- Здесь будет основной контент -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuBtn = document.getElementById('menuBtn');
+      const closeMenuBtn = document.getElementById('closeMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      // Открытие меню
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.style.display = 'block';
+        setTimeout(() => {
+          mobileMenu.classList.add('active');
+        }, 10);
+      });
+
+      // Закрытие меню
+      function closeMenu() {
+        mobileMenu.classList.remove('active');
+        setTimeout(() => {
+          mobileMenu.style.display = 'none';
+        }, 300);
+      }
+
+      closeMenuBtn.addEventListener('click', closeMenu);
+
+      // Закрытие меню при клике на ссылку
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      // Закрытие меню при клике вне его области
+      mobileMenu.addEventListener('click', function(e) {
+        if (e.target === mobileMenu) {
+          closeMenu();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

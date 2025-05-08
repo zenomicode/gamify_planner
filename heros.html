@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор персонажа</title>
+    <link rel="stylesheet" href="style/heros.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <h1 class="centered-title">Выберите класс персонажа</h1>
+        <form id="characterForm">
+            <div class="rectangles-container">
+                <label class="radio-rectangle">
+                    <input type="radio" name="characterClass" value="warrior">
+                    <div class="rectangle-content">
+                        <div class="image-container">
+                            <img src="" class="character-image" data-class="warrior">
+                        </div>
+                        <div class="taxt-content">
+                            <p>Воин</p>
+                            <p style="color: #86D7FF;">Имеет бонус к атаке и увеличенный шанс получить вещь после победы над боссом.</p>
+                            <hr>
+                            <p>"Сильный и решительный, Воин быстрее побеждает мощных врагов вместе с командой и получает больше наград для себя."</p>
+                        </div>
+                    </div>
+                </label>
+
+                <label class="radio-rectangle">
+                    <input type="radio" name="characterClass" value="mage">
+                    <div class="rectangle-content">
+                        <div class="image-container">
+                            <img src="" class="character-image" data-class="mage">
+                        </div>
+                        <div class="taxt-content">
+                            <p>Маг</p>
+                            <p style="color: #A2FF86;">Получает больше опыта за выполнение задач.</p>
+                            <hr>
+                            <p>"Любознательный и амбициозный, Маг стремится к знаниям и быстро прогрессирует, чтобы достичь новых высот."</p>
+                        </div>
+                    </div>
+                </label>
+
+                <label class="radio-rectangle">
+                    <input type="radio" name="characterClass" value="bard">
+                    <div class="rectangle-content">
+                        <div class="image-container">
+                            <img src="" class="character-image" data-class="bard">
+                        </div>
+                        <div class="taxt-content">
+                            <p>Бард</p>
+                            <p style="color: #FFFC94;">Получает больше золота за задачи и победы над боссами.</p>
+                            <hr>
+                            <p>"Харизматичный и удачливый, Бард умеет превращать успех в богатство, которое можно потратить на полезные вещи."</p>
+                        </div>
+                    </div>
+                </label>
+
+                <label class="radio-rectangle">
+                    <input type="radio" name="characterClass" value="priest">
+                    <div class="rectangle-content">
+                        <div class="image-container">
+                            <img src="" class="character-image" data-class="priest">
+                        </div>
+                        <div class="taxt-content">
+                            <p>Жрец</p>
+                            <p style="color: #FF9496;">Получает меньше урона при провале задач.</p>
+                            <hr>
+                            <p>"Спокойный и стойкий, Жрец прощает ошибки и помогает преодолевать трудности даже в самые загруженные дни."</p>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <button type="submit">Подтвердить выбор</button>
+        </form>
+    </div>
+
+    <script>
+        // Получаем выбранный пол (по умолчанию женский)
+        const userGender = localStorage.getItem('userGender') || 'female';
+        const genderSuffix = userGender === 'male' ? '-М' : '-Ж';
+
+        // Обновляем все изображения персонажей
+        document.querySelectorAll('.character-image').forEach(img => {
+            const characterClass = img.getAttribute('data-class');
+            img.src = `images/${characterClass}${genderSuffix}.svg`;
+        });
+
+        // Обработка формы выбора персонажа
+        document.getElementById('characterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedClass = document.querySelector('input[name="characterClass"]:checked');
+            if (selectedClass) {
+            } else {
+                alert('Пожалуйста, выберите класс персонажа');
+            }
+        });
+    </script>
+</body>
+</html>
