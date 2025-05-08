@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #1A515F;
+    --primary-color: #226058;
     --secondary-color: #B8CACD;
     --accent-color: #007BFF;
     --error-color: #b54e4e;
@@ -81,7 +81,7 @@ body {
 }
 
 .register-container button:hover {
-    background: #226058;
+    background: #388c81;
     transform: translateY(-2px);
 }
 
