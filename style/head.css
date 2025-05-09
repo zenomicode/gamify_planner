@@ -4,6 +4,7 @@ body {
   background-color: #E7EFF0;
   min-height: 100vh;
   font-family: Arial, sans-serif;
+  position: relative;
 }
 
 
@@ -123,7 +124,7 @@ body {
 .header2 {
   width: 100px;
   background-color: #226058;
-  position: fixed;
+  position: absolute;
   top: 180px;
   bottom: 0;
   left: 0;
@@ -167,6 +168,8 @@ body {
   border-radius: 10px;
   position: relative;
 }
+
+
 
 /* Мобильное меню */
 .mobile-menu-btn {
@@ -308,23 +311,35 @@ body {
 }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .character-container1 {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
   }
   
   .user-name {
-      font-size: 20px;
+      font-size: 14px;
 
   }
   
   .user-level {
-      font-size: 14px;
+      font-size: 12px;
   }
   
   .invisible-table td {
-      padding: 8px 10px;
-      font-size: 14px;
+      padding: 4px 10px;
+      font-size: 12px;
   } 
+  .img-param{
+    width: 12%;
+  }
+
+  .character-line {
+    display: none;
+}
+
+.stats-container {
+  width: 0%;
+}
+
 }
