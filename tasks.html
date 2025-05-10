@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задачи</title>
+  <link rel="stylesheet" href="style/head.css">
+  <link rel="stylesheet" href="style\tasks.css">
+</head>
+<body>
+    <!-- Обертка для шапки и меню -->
+    <div id="header-wrapper"></div>
+  
+  <!-- Основной контент -->
+  <div class="main-content">
+    <div class="blocks-container">
+      <!-- Блок каталога "Мой день" -->
+      <div class="catalog" id="my-day-catalog">
+        <div class="catalog-content">
+          <div class="title">
+            Мой день
+            <span class="date" id="current-date"></span>
+          </div> 
+          <ul class="tasks-list" id="tasks-list">
+            <!-- Задачи будут добавляться сюда -->
+          </ul>
+          <button class="btn-task" id="add-task-btn">+</button>
+        </div>
+      </div>
+      
+      <!-- Блок каталога "Календарь" -->
+      <div class="catalog" id="calendar-catalog">
+        <div class="catalog-content">
+          <div class="title">Календарь</div>
+          <div id="calendar-content">
+            <!-- Задачи по датам будут добавляться сюда -->
+          </div>
+        </div>
+      </div>
+      
+      <button class="btn-cat" id="create-catalog-btn">Создать каталог</button>
+    </div>
+  </div>
+
+  <!-- Модальное окно для задачи -->
+  <div class="modal" id="task-modal">
+    <div class="modal-content">
+      <h3 class="modal-title" id="task-modal-title">Новая задача</h3>
+      <input type="text" class="modal-input" id="task-input" placeholder="Введите задачу">
+      
+      <div class="task-options">
+        <!-- Дата выполнения -->
+        <div class="option-group">
+          <label class="option-label">Дата выполнения:</label>
+          <input type="date" class="modal-input" id="deadline-input">
+        </div>
+        
+        <!-- Повторения по дням недели -->
+        <div class="option-group">
+          <label class="option-label">Повторять по дням:</label>
+          <div class="day-checkboxes">
+            <label class="day-checkbox"><input type="checkbox" name="repeat-days" value="mon"> Пн</label>
+            <label class="day-checkbox"><input type="checkbox" name="repeat-days" value="tue"> Вт</label>
+            <label class="day-checkbox"><input type="checkbox" name="repeat-days" value="wed"> Ср</label>
+            <label class="day-checkbox"><input type="checkbox" name="repeat-days" value="thu"> Чт</label>
+            <label class="day-checkbox"><input type="checkbox" name="repeat-days" value="fri"> Пт</label>
+            <label class="day-checkbox"><input type="checkbox" name="repeat-days" value="sat"> Сб</label>
+            <label class="day-checkbox"><input type="checkbox" name="repeat-days" value="sun"> Вс</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-buttons">
+        <button class="modal-btn" id="cancel-task-btn">Отмена</button>
+        <button class="modal-btn modal-btn-primary" id="save-task-btn">Сохранить</button>
+        <button class="modal-btn" id="delete-task-btn" style="display: none;">Удалить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно для нового каталога -->
+  <div class="modal" id="catalog-modal">
+    <div class="modal-content">
+      <h3 class="modal-title">Новый каталог</h3>
+      <input type="text" class="modal-input" id="catalog-input" placeholder="Введите название">
+      <div class="modal-buttons">
+        <button class="modal-btn" id="cancel-catalog-btn">Отмена</button>
+        <button class="modal-btn modal-btn-primary" id="save-catalog-btn">Создать</button>
+      </div>
+    </div>
+  </div>
+ 
+  
+    <script src="js/load-components-head.js"></script>
+    <script src="js\tasks.js"></script>
+  </body>
+</html>
