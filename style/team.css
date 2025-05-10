@@ -1,0 +1,214 @@
+  .main-content {
+      padding: 30px;
+      margin-left: 100px;
+      max-width: 1200px;
+    }
+    
+    .blocks-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      align-items: flex-start;
+    }
+    
+    .team-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      min-width: 300px;
+    }
+    
+    h1 {
+      color: #1A3C34;
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    .fon {
+      background-color: #B8CACD;
+      color: #1A3C34;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    
+    .fon:hover {
+      transform: translateY(-3px);
+    }
+    
+    .fon h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #1A3C34;
+      font-weight: 600;
+    }
+    
+    .team-members {
+      list-style-type: none;
+    }
+    
+    .team-members li {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(26, 60, 52, 0.1);
+    }
+    
+    .team-members li:last-child {
+      border-bottom: none;
+    }
+    
+    .owner {
+      font-weight: 600;
+      color: #c0585a;
+    }
+    
+    .btn {
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 500;
+      transition: all 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      width: 100%;
+    }
+    
+    .btn:hover {
+      background: #c0585a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .monster-card {
+      background-color: #1A3C34;
+      padding: 20px;
+      border-radius: 10px;
+      width: 320px;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .monster-name {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .monster-level {
+      font-size: 16px;
+      opacity: 0.8;
+      margin-bottom: 15px;
+    }
+    
+    .monster-img {
+      width: 320px;
+      height: 300px;
+      background-color: #E7EFF0;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1A3C34;
+      font-weight: 500;
+      background-image: linear-gradient(135deg, #E7EFF0 0%, #B8CACD 100%);
+    }
+    
+    .progress-container {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 3px;
+        margin: 15px 0;
+        position: relative; /* Добавляем относительное позиционирование */
+        height: 26px; /* Фиксированная высота */
+        display: flex; /* Используем flex для центрирования */
+        align-items: center; /* Вертикальное центрирование */
+        justify-content: center; /* Горизонтальное центрирование */
+        border-radius: 8px;
+        font-size: 16px;
+
+    }
+    
+    .hp {
+        background-color: #c0585a;
+        width: 40.5%; /* Ширина прогресс-бара */
+        height: 100%; /* Занимает всю высоту контейнера */
+        display: flex; /* Для центрирования текста */
+        align-items: center; /* Вертикальное центрирование */
+        justify-content: center; /* Горизонтальное центрирование */
+        position: absolute; /* Абсолютное позиционирование */
+        left: 0; /* Выравнивание по левому краю */
+        top: 0; /* Выравнивание по верхнему краю */
+        border-radius: 8px;
+    }
+    
+    .monster-description {
+      font-style: italic;
+      opacity: 0.9;
+      font-size: 15px;
+    }
+    
+    .chat-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .chat-title {
+      color: #1A3C34;
+      font-size: 22px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .chat-box {
+      height: 250px;
+      border: 2px solid #B8CACD;
+      border-radius: 8px;
+      background-color: white;
+      margin-bottom: 15px;
+      padding: 15px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+    
+    .chat-input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #B8CACD;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    
+    .chat-input:focus {
+      outline: none;
+      border-color: #1A3C34;
+    }
+    
+    @media (max-width: 1024px) {
+      .main-content {
+        margin-left: 50px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        margin-left: 20px;
+        padding: 20px;
+      }
+      
+      .blocks-container {
+        flex-direction: column;
+      }
+      
+      .team-section, .monster-card, .chat-container {
+        width: 100%;
+      }
+    }

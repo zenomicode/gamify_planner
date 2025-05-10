@@ -1,4 +1,11 @@
-.main-content {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  
+  .main-content {
     padding: 20px;
     margin-left: 100px;
   }
@@ -22,23 +29,35 @@
     border-radius: 8px;
   }
   
-  .catalog-content {
-    margin: 20px;
-    width: calc(100% - 40px);
+  .catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 10px;
+    position: relative;
   }
   
-  .title {
+  .catalog-title {
     color: #000;
     font-size: 35px;
-    margin-bottom: 20px;
+    margin: 0;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .catalog-actions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     display: flex;
-    align-items: center;
     gap: 10px;
   }
   
-  .date {
-    font-size: 25px;
-    color: #2d2d2d;
+  .catalog-content {
+    padding: 0 20px 20px;
+    flex-grow: 1;
   }
   
   .tasks-list {
@@ -60,6 +79,8 @@
     border: 1px solid #e0e0e0;
     cursor: pointer;
     transition: all 0.2s;
+    word-break: break-word;
+    overflow: hidden;
   }
   
   .task-item:hover {
@@ -69,14 +90,16 @@
   
   .task-checkbox {
     margin-right: 15px;
-    width: 20px;
+    min-width: 20px;
     height: 20px;
     cursor: pointer;
+    flex-shrink: 0;
   }
   
   .task-text {
     flex-grow: 1;
-    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .task-text.completed {
@@ -85,11 +108,8 @@
   }
   
   .btn-task {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #fff;
     border: none;
@@ -100,6 +120,7 @@
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: background 0.3s, transform 0.2s;
+    flex-shrink: 0;
   }
   
   .btn-task:hover {
@@ -119,11 +140,34 @@
     font-size: 25px;
     transition: background 0.3s, transform 0.2s;
     display: block;
+    margin-top: 20px;
   }
   
   .btn-cat:hover {
     background: #388c81;
     transform: translateY(-2px);
+  }
+  
+  .delete-catalog-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    color: #dc3545;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    flex-shrink: 0;
+  }
+  
+  .delete-catalog-btn:hover {
+    background: #dc3545;
+    color: white;
   }
   
   /* Стили модального окна */
@@ -146,6 +190,7 @@
     border-radius: 10px;
     width: 90%;
     max-width: 500px;
+    position: relative;
   }
   
   .modal-title {
@@ -223,16 +268,52 @@
     margin-bottom: 5px;
   }
   
-  .day-checkboxes {
+  /* Стили для кнопок дней недели */
+  .day-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
   }
   
-  .day-checkbox {
+  .day-btn {
+    padding: 8px 12px;
+    border: 1px solid #A3B9BC;
+    border-radius: 5px;
+    background-color: #E7EFF0;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+    min-width: 40px;
+    text-align: center;
+  }
+  
+  .day-btn.selected {
+    background-color: #226058;
+    color: white;
+    border-color: #226058;
+  }
+  
+  /* Стили для сложности */
+  .complexity-buttons {
     display: flex;
-    align-items: center;
-    gap: 5px;
+    gap: 10px;
+  }
+  
+  .complexity-btn {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #A3B9BC;
+    border-radius: 5px;
+    background-color: #E7EFF0;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  
+  .complexity-btn.selected {
+    background-color: #226058;
+    color: white;
+    border-color: #226058;
   }
   
   /* Календарь */
@@ -245,6 +326,27 @@
     font-weight: bold;
     margin-bottom: 5px;
     color: #226058;
+    padding: 5px 0;
+    border-bottom: 2px solid #226058;
+  }
+  
+  /* Кнопка удаления */
+  .delete-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #c4535e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
   }
   
   /* Адаптивность */
@@ -256,5 +358,14 @@
     
     .catalog {
       min-width: 100%;
+    }
+    
+    .catalog-title {
+      font-size: 28px;
+    }
+    
+    .task-item {
+      font-size: 16px;
+      padding: 10px;
     }
   }

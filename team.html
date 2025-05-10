@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сражения</title>
+  <link rel="stylesheet" href="style/head.css">
+  <link rel="stylesheet" href="style\team.css">
+</head>
+<body>
+    <!-- Обертка для шапки и меню -->
+    <div id="header-wrapper"></div>
+  
+<!-- Основной контент -->
+<div class="main-content">
+  <div class="blocks-container">
+    <div class="team-section">
+      <h1>О команде:</h1>
+      <div class="fon">
+        <h2>Название:</h2>
+        <p>Плюшки</p>
+      </div>
+      
+      <div class="fon">
+        <h2>Участники:</h2>
+        <ul class="team-members">
+          <li class="owner">Utarna (владелец)</li>
+          <li>Волык</li>
+          <li>Анигилятор 3000</li>
+        </ul>
+      </div>
+      
+      <div class="fon">
+        <h2>О команде:</h2>
+        <p>Фармим шмотки и голду</p>
+      </div>
+      
+      <button class="btn">Удалить команду</button>
+    </div>
+    
+    <div class="monster-card">
+      <h2 class="monster-name">Пожиратель душ</h2>
+      <h3 class="monster-level">уровень 7</h3>
+      <div class="monster-img"></div>
+      
+      <div class="progress-container"> 
+        <div class="hp"></div>855/1000
+      </div>
+      <div class="monster-description">"Опасное существо из глубин подземелья."</div>
+    </div>
+    
+    <div class="chat-container">
+      <h1 class="chat-title">Чат с участниками</h1>
+      <div class="chat-box"></div>
+      <input type="text" class="chat-input" placeholder="Введите сообщение...">
+    </div>
+  </div>
+</div>
+  
+    <script src="js/load-components-head.js"></script>
+  </body>
+</html>
